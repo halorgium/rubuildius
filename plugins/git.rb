@@ -40,7 +40,7 @@ module MatzBot::Commands
       session[:git_last_hash] = top_hash
 
       person = name.text
-      build  = IO.popen("~/continuous/bin/rubinius.zsh #{hash}", "r+") { |p| p.read }
+      build  = IO.popen("~/rubuildius/bin/rubinius.zsh #{hash}", "r+") { |p| p.read }
       unless build.empty?
 	say "#{person}: #{hash[0..8]}; #{build}"
         #build.split("\n").map{|x| say "  * " << x}
