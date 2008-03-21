@@ -6,7 +6,7 @@ trap '' ABRT
 [[ -z $1 ]] && exit
 unset RUBYOPT      # so that rubinius builds
 
-root=~/continuous
+root=~/rubuildius
 #pastie=$root/bin/pastie.rb
 pastie=$root/bin/nopaste
 rubinius=$root/repo/rubinius

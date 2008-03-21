@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-matzdir = "~/matzbot/"
+rubuildius_dir = "~/rubuildius/"
 
-if `ps -A | grep \`cat #{matzdir}matzbot.pid\` | wc`.to_i.zero?
-  system("cd #{matzdir}; rm matzbot.pid; ./launch.rb -d -w `cat the_password`")
+if `ps -A | grep \`cat #{rubuildius_dir}matzbot.pid\` | wc`.to_i.zero?
+  system("cd #{rubuildius_dir}; rm matzbot.pid; ./launch.rb -u rubuildius_xxx -n rubuildius_xxx -m rubuildius_xxx -c rubuildius_test")
 end
