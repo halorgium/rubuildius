@@ -22,7 +22,7 @@ cd $thischeckout
 git checkout $1 2>/dev/null
 
 
-rake build &>build_log
+MAKEFLAGS='-j3' rake build &>build_log
 # did it build?
 if [[ $? -ne 0 ]]; then
 	echo "build failed! `cat build_log | $pastie`"
