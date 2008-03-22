@@ -7,6 +7,7 @@ IRC_CHANNEL=rubuildius_test
 
 while true;
 do
+    rm -f matzbot.pid
     ./launch.rb -u $IRC_USER -n $IRC_NICK -m $IRC_NAME -c $IRC_CHANNEL
     sleep 30
 done
