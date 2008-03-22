@@ -1,13 +1,15 @@
 #!/bin/sh
 
-USER=rubuildius_xxx
-NICK=rubuildius_xxx
-NAME=rubuildius_xxx
-CHANNEL=rubuildius_test
+IRC_USER=rubuildius_xxx
+IRC_NICK=rubuildius_xxx
+IRC_NAME=rubuildius_xxx
+IRC_CHANNEL=rubuildius_test
 
-while true;
-do
-    ./launch.rb -u $USER -n $NICK -m $NAME -c $CHANNEL
+cd $HOME/rubuildius/
+
+bot_status=`ps -A | grep \`cat matzbot.pid\` | wc -l`
+
+if [ $bot_status = '0' ]; then
     rm matzbot.pid
-    sleep 30
-done
+    exec ruby launch.rb -u $IRC_USER -n $IRC_NICK -m $IRC_NAME -c $IRC_CHANNEL
+fi
