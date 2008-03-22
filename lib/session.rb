@@ -5,11 +5,7 @@ module MatzBot
     extend self
 
     def session_file
-      File.join(home_dir, 'session.yml')
-    end
-
-    def home_dir
-      MatzBot.dot_matz_bot
+      File.join('./', 'session.yml')
     end
 
     def session
@@ -17,8 +13,6 @@ module MatzBot
     end
 
     def save
-      FileUtils.mkdir(home_dir) unless File.exists? home_dir
-
       File.open(session_file, 'w') do |f|
         session_marshalled = session.dup
         marshalled = {}
