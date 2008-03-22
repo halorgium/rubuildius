@@ -1,7 +1,7 @@
 #!/bin/zsh
 
-trap '' HUP
-trap '' ABRT
+#trap '' HUP
+#trap '' ABRT
 
 [[ -z $1 ]] && exit
 unset RUBYOPT      # so that rubinius builds
