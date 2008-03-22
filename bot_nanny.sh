@@ -8,5 +8,6 @@ CHANNEL=rubuildius_test
 while true;
 do
     ./launch.rb -u $USER -n $NICK -m $NAME -c $CHANNEL
+    rm matzbot.pid
     sleep 30
 done
