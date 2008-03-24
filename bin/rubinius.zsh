@@ -32,7 +32,7 @@ fi
 # version and stuff
 ./shotgun/rubinius -v -e 'true' &>ci_log
 # a bit of a workaround because ci_log can exec
-./bin/ci -f m &>>ci_log
+./bin/mspec ci -fm &>>ci_log
 
 #sleep 5
 #old=$(stat -c '%Y' ci_log)
