@@ -3,7 +3,7 @@
 $:.unshift "lib"
 require 'rubygems'
 require 'choice'
-require_gem 'choice', '>= 0.1.2'
+gem 'choice', '>= 0.1.2'
 require 'matzbot'
 
 Choice.options do
