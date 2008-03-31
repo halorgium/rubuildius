@@ -5,7 +5,12 @@
 
 unset RUBYOPT # so that rubinius builds
 
-root=$HOME/rubuildius
+if [ "x$RUBUILDIUS_DIR" = "x" ]; then
+    root=`pwd`
+else
+    root=$RUBUILDIUS_DIR
+fi
+
 #pastie=$root/bin/pastie.rb
 pastie=$root/bin/nopaste
 rubinius=$root/repo/rubinius
