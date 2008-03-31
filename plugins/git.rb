@@ -46,6 +46,22 @@ module MatzBot::Commands
         #build.split("\n").map{|x| say "  * " << x}
       end
 
+      build =~ /(\d*) failure/
+      num_failures = $1.to_i
+
+      build =~ /(\d*) error/
+      num_errors = $1.to_i
+
+      email_to = 'rubinius-dev@googlegroups.com'
+
+      if num_failures > 0 || num_errors > 0 || build =~ /failed/
+        IO.popen("/usr/sbin/sendmail -f rubuildius@spcom.org #{email_to}", "r+") do |p|
+	  p.write("To: #{email_to}\r\n")
+	  p.write("Subject: Rubuildius CI error/failure\r\n")
+          p.write("\r\n#{person}: #{hash[0..8]}; #{build}\r\n")
+        end
+      end
+
       break # only run it for the very last commit
     end
   end
