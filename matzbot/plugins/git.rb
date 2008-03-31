@@ -2,7 +2,13 @@ module MatzBot::Commands
   
   require 'open-uri'
   require 'rexml/document'
-  
+
+  if ENV['RUBUILDIUS_DIR'].nil?
+    rubuildius_dir = `pwd`
+  else
+    rubuildius_dir = ENV['RUBUILDIUS_DIR']
+  end
+
   GIT_URL = 'http://git.rubini.us/?p=code;a=atom'
 
   hup_proc = lambda {
